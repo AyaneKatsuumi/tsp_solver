@@ -13,8 +13,8 @@ const OPT_OR2OPT: u32 = 0x00080000;
 const MASK_INIT: u32 = 0x0000FFFF;
 const ERROR: u32 = 0xFFFFFFFF;
 
-// const MODE_DAT: u32 = 0x00000001;
-// const MODE_CSV: u32 = 0x00000002;
+const MODE_DAT: u32 = 0;
+const MODE_CSV: u32 = 1;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -39,7 +39,7 @@ fn main() {
     // 引数からモード取得
     let mode = match args[2].parse::<u32>() {
         Ok(f) => {
-            if f == 0 {
+            if f == MODE_DAT {
                 FileType::Dat
             } else {
                 FileType::Csv
